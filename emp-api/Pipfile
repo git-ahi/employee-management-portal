@@ -8,6 +8,8 @@ django = "*"
 djangorestframework = "*"
 pillow = "*"
 psycopg2 = "*"
+django-shortcuts = "*"
+"django.shortcuts" = "*"
 
 [dev-packages]
 
