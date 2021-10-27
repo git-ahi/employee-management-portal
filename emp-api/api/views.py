@@ -10,7 +10,7 @@ from django.core.files.storage import default_storage
 @api_view(['GET', 'POST' , 'PUT','DELETE'])
 
 
-def departmentApi(request,id=0):
+def departmentsApi(request,id=0):
     if request.method=='GET':
         departments = Departments.objects.all()
         departments_serializer = DepartmentSerializer(departments, many=True)
