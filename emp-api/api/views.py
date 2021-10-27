@@ -18,7 +18,7 @@ def departmentsApi(request, id=0):
 
     elif request.method == 'POST':
         department_serializer = DepartmentSerializer(
-            data=request.department_data)
+            data=request.data)
         if department_serializer.is_valid():
             department_serializer.save()
             return Response("Added Successfully!!")
@@ -26,9 +26,9 @@ def departmentsApi(request, id=0):
 
     elif request.method == 'PUT':
         department = Departments.objects.get(
-            DepartmentId=request.department_data['DepartmentId'])
+            DepartmentId=request.data['DepartmentId'])
         department_serializer = DepartmentSerializer(
-            department, data=request.department_data)
+            department, data=request.data)
         if department_serializer.is_valid():
             department_serializer.save()
             return Response("Updated Successfully!!")
@@ -48,7 +48,7 @@ def employeeApi(request, id=0):
         return Response(employees_serializer.data)
 
     elif request.method == 'POST':
-        employee_serializer = EmployeeSerializer(data=request.employee_data)
+        employee_serializer = EmployeeSerializer(data=request.data)
         if employee_serializer.is_valid():
             employee_serializer.save()
             return Response(employee_serializer.data, status=status.HTTP_201_CREATED)
@@ -56,9 +56,9 @@ def employeeApi(request, id=0):
 
     elif request.method == 'PUT':
         employee = Employees.objects.get(
-            EmployeeId=request.employee_data['EmployeeId'])
+            EmployeeId=request.data['EmployeeId'])
         employee_serializer = EmployeeSerializer(
-            employee, data=request.employee_data)
+            employee, data=request.data)
         if employee_serializer.is_valid():
             employee_serializer.save()
             return Response("Updated Successfully!!")
