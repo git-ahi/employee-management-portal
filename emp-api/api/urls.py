@@ -5,11 +5,10 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path('department', views.departmentApi),
-    path('department/[0-9+]', views.departmentApi),
+    path('department', views.departmentsApi),
+    path('department/[0-9+]', views.departmentsApi),
     path('employee', views.employeeApi),
     path('department/[0-9+]', views.employeeApi),
-   
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
